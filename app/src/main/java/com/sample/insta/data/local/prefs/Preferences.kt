@@ -12,6 +12,7 @@ class Preferences @Inject constructor(private val prefs: SharedPreferences) {
         const val KEY_USER_NAME = "PREF_KEY_USER_NAME"
         const val KEY_USER_EMAIL = "PREF_KEY_USER_EMAIL"
         const val KEY_ACCESS_TOKEN = "PREF_KEY_ACCESS_TOKEN"
+        const val KEY_PROFILE_PIC = "PREF_KEY_PROFILE_PIC"
     }
 
     fun getUserId(): String? =
@@ -19,6 +20,12 @@ class Preferences @Inject constructor(private val prefs: SharedPreferences) {
 
     fun setUserId(userId: String) =
         prefs.edit().putString(KEY_USER_ID, userId).apply()
+
+    fun getProfilePic(): String? =
+        prefs.getString(KEY_PROFILE_PIC, null)
+
+    fun setProfilePic(profilePic: String?) =
+        prefs.edit().putString(KEY_PROFILE_PIC, profilePic).apply()
 
     fun removeUserId() =
         prefs.edit().remove(KEY_USER_ID).apply()
@@ -51,5 +58,5 @@ class Preferences @Inject constructor(private val prefs: SharedPreferences) {
         prefs.edit().remove(KEY_ACCESS_TOKEN).apply()
 
 
-    fun clearAllPreference() = prefs.edit().clear()
+    fun clearAllPreference() = prefs.edit().clear().apply()
 }

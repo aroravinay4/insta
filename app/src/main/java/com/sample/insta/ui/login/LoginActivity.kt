@@ -1,7 +1,6 @@
 package com.sample.insta.ui.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,7 +9,7 @@ import androidx.lifecycle.Observer
 import com.sample.insta.R
 import com.sample.insta.di.components.ActivityComponent
 import com.sample.insta.ui.base.BaseActivity
-import com.sample.insta.ui.home.HomeActivity
+import com.sample.insta.ui.main.HomeActivity
 import com.sample.insta.ui.signup.SignUpActivity
 import com.sample.insta.utils.common.Status
 import kotlinx.android.synthetic.main.activity_login_screen.*

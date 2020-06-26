@@ -1,6 +1,8 @@
 package com.sample.insta.ui
 
 import android.content.Intent
+import androidx.test.core.app.ActivityScenario
+import androidx.test.core.app.ActivityScenario.launch
 import androidx.test.espresso.intent.rule.IntentsTestRule
 import androidx.test.platform.app.InstrumentationRegistry
 import com.sample.insta.TestComponentRule
@@ -17,10 +19,11 @@ class LoginActivityTest {
     private val component =
         TestComponentRule(InstrumentationRegistry.getInstrumentation().targetContext)
 
-    private val main = IntentsTestRule(LoginActivity::class.java, false, false)
+    //    val main = IntentsTestRule(LoginActivity::class.java, false, false)
 
     @get:Rule
-    val chain = RuleChain.outerRule(component).around(main)
+    //  val chain = RuleChain.outerRule(component).around(main)
+    val chain = RuleChain.outerRule(component)
 
     @Before
     fun setUp() {
@@ -29,6 +32,12 @@ class LoginActivityTest {
 
     @Test
     fun testCheckViewsDisplay() {
-        main.launchActivity(Intent(component.getContext(), LoginActivity::class.java))
+        // main.launchActivity(Intent(component.getContext(), LoginActivity::class.java))
+        launch(LoginActivity::class.java)
+    }
+
+    @Test
+    fun givenValidEmailAndPwd_whenLogin_shouldOpenMainActivity() {
+
     }
 }

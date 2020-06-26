@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import com.sample.insta.R
 import com.sample.insta.di.components.ActivityComponent
 import com.sample.insta.ui.base.BaseActivity
-import com.sample.insta.ui.home.HomeActivity
+import com.sample.insta.ui.main.HomeActivity
 import com.sample.insta.ui.login.LoginActivity
 
 class SplashScreen : BaseActivity<SplashViewModel>() {

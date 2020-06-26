@@ -6,10 +6,7 @@ import androidx.lifecycle.OnLifecycleEvent
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-abstract class BaseAdapter<T : Any, VH : BaseItemViewHolder<T, BaseItemViewModel<T>>>(
-    parentLifeCycle: Lifecycle,
-    private val dataList: ArrayList<T>
-) : RecyclerView.Adapter<VH>() {
+abstract class BaseAdapter<T : Any, VH : BaseItemViewHolder<T, out BaseItemViewModel<T>>>(parentLifeCycle: Lifecycle, private val dataList: ArrayList<T>) : RecyclerView.Adapter<VH>() {
 
     private var recyclerView: RecyclerView? = null
 
@@ -92,8 +89,21 @@ abstract class BaseAdapter<T : Any, VH : BaseItemViewHolder<T, BaseItemViewModel
         this.recyclerView = null
     }
 
-    fun appendData() {
+    fun appendData(dataList: List<T>) {
+        val oldCount = itemCount
+        this.dataList.addAll(dataList)
+        val currentCount = itemCount
+        if (oldCount == 0 && currentCount > 0)
+            notifyDataSetChanged()
+        else if (oldCount > 0 && currentCount > oldCount)
+            notifyItemRangeChanged(oldCount - 1, currentCount - oldCount)
 
+    }
+
+    fun updateList(list: List<T>) {
+        dataList.clear()
+        dataList.addAll(list)
+        notifyDataSetChanged()
     }
 
 

@@ -70,7 +70,7 @@ abstract class BaseFragment<VM : BaseViewModel> : Fragment() {
     @LayoutRes
     protected abstract fun provideLayoutId(): Int
 
-    protected abstract fun injectDependency(FragmentComponent: FragmentComponent)
+    protected abstract fun injectDependency(fragmentComponent: FragmentComponent)
 
     protected abstract fun setupView(view: View)
 }

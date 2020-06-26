@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sample.insta.application.InstaApplication
 import com.sample.insta.di.components.DaggerViewHolderComponent
 import com.sample.insta.di.components.ViewHolderComponent
+import com.sample.insta.di.module.ViewHolderModule
 import com.sample.insta.utils.display.Toaster
 import javax.inject.Inject
 
@@ -65,6 +66,9 @@ abstract class BaseItemViewHolder<T : Any, VM : BaseItemViewModel<T>>(
     private fun buildViewHolderComponent() =
         DaggerViewHolderComponent.builder()
             .applicationComponent((itemView.context.applicationContext as InstaApplication).applicationComponent)
+            .viewHolderModule(
+                ViewHolderModule(this)
+            )
             .build()
 
     private fun showMessage(message: String) = Toaster.show(itemView.context, message)

@@ -7,10 +7,12 @@ import com.sample.insta.data.remote.NetWorkService
 import com.sample.insta.data.repository.UserRepository
 import com.sample.insta.di.module.ApplicationModule
 import com.sample.insta.di.qualifire.ApplicationContext
+import com.sample.insta.di.qualifire.TempDirectory
 import com.sample.insta.utils.network.NetworkHelper
 import com.sample.insta.utils.rx.SchedulerProvider
 import dagger.Component
 import io.reactivex.disposables.CompositeDisposable
+import java.io.File
 import javax.inject.Singleton
 
 @Singleton
@@ -32,5 +34,8 @@ interface ApplicationComponent {
     fun getCompositeDisposable(): CompositeDisposable
 
     fun getUserRepository(): UserRepository
+
+    @TempDirectory
+    fun getTempDirectory(): File
 
 }

@@ -10,7 +10,7 @@ import com.sample.insta.R
 
 import com.sample.insta.di.components.ActivityComponent
 import com.sample.insta.ui.base.BaseActivity
-import com.sample.insta.ui.home.HomeActivity
+import com.sample.insta.ui.main.HomeActivity
 import com.sample.insta.ui.login.LoginActivity
 import com.sample.insta.ui.login.LoginViewModel
 import com.sample.insta.utils.common.Status
@@ -72,7 +72,7 @@ class SignUpActivity : BaseActivity<LoginViewModel>() {
         viewModel.emailValidation.observe(this, Observer {
             when (it.status) {
                 Status.ERROR -> layout_email.error = it.data?.run { getString(this) }
-               // else -> layout_email.isEnabled = false
+                else -> layout_email.isEnabled = true
             }
         })
 
@@ -83,7 +83,7 @@ class SignUpActivity : BaseActivity<LoginViewModel>() {
         viewModel.passwordValidation.observe(this, Observer {
             when (it.status) {
                 Status.ERROR -> layout_password.error = it.data?.run { getString(this) }
-              //  else -> layout_password.isEnabled = false
+                else -> layout_password.isEnabled = true
             }
         })
 
@@ -94,11 +94,11 @@ class SignUpActivity : BaseActivity<LoginViewModel>() {
         viewModel.nameValidation.observe(this, Observer {
             when (it.status) {
                 Status.ERROR -> layout_name.error = it.data?.run { getString(this) }
-              //  else -> layout_name.isEnabled = false
+                else -> layout_name.isEnabled = true
             }
         })
 
-        viewModel.logIn.observe(this, Observer {
+        viewModel.logIn.observe(this, Observer {    
             pb_loading.visibility = if (it) View.VISIBLE else View.GONE
         })
 

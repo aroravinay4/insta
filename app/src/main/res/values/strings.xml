@@ -21,4 +21,19 @@
     <string name="password_field_empty">Password can\'t be empty</string>
     <string name="password_field_small_length">Password less than 6 digits</string>
     <string name="name_field_empty">Name can\'t be empty</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_add_photos">Photo</string>
+    <string name="menu_profile">Profile</string>
+
+    <!--posts-->
+    <string name="post_like_label">%1d Likes</string>
+    <string name="camera">camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="try_again">tryAgain</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="change_photo">Change Photo</string>
+    <string name="logout">Logout</string>
 </resources>

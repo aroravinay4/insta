@@ -22,13 +22,21 @@ android {
             buildConfigField("String", "API_KEY", "\"HBNA19QVVAPP\"")
         }
         release {
-            minifyEnabled false
+                minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField("String", "BASE_URL", "\"https://api.projects.bootcamp.mindorks.com/batch/green/\"")
             buildConfigField("String", "API_KEY", "\"HBNA19QVVAPP\"")
             multiDexEnabled = true
 
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
 }
@@ -62,6 +70,7 @@ dependencies {
     // Annotation processor
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
     // Saved state module for ViewModel
@@ -100,6 +109,9 @@ dependencies {
     // Parser
     implementation "com.google.code.gson:gson:$gson_version"
 
+    // Camera
+    implementation 'com.mindorks:paracamera:0.2.2'
+
     //local unit tests
     testImplementation "junit:junit:$junit_version"
     testImplementation "org.mockito:mockito-core:$mockito_version"
@@ -114,6 +126,7 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
     androidTestImplementation "androidx.test.espresso:espresso-intents:$espresso_version"
     androidTestImplementation "org.mockito:mockito-core:$mockito_version"
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
     kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger_version"
 
 

@@ -8,7 +8,7 @@ buildscript {
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.3'
+        classpath 'com.android.tools.build:gradle:4.0.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -79,6 +79,7 @@ ext {
     core_testing_version = '1.1.1'
     test_runner_version = '1.1.1'
     test_ext_runner_version = '1.1.0'
+    fragment_version = '1.2.2'
     hamcrest_version = '2.1'
 
 }

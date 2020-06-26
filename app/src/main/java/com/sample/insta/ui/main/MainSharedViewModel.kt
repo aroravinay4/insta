@@ -1,11 +1,14 @@
-package com.sample.insta.ui.home
+package com.sample.insta.ui.main
 
+import androidx.lifecycle.MutableLiveData
+import com.sample.insta.data.model.Post
 import com.sample.insta.ui.base.BaseViewModel
+import com.sample.insta.utils.common.Event
 import com.sample.insta.utils.network.NetworkHelper
 import com.sample.insta.utils.rx.SchedulerProvider
 import io.reactivex.disposables.CompositeDisposable
 
-class HomeViewModel(
+class MainSharedViewModel(
     schedulerProvider: SchedulerProvider,
     compositeDisposable: CompositeDisposable,
     networkHelper: NetworkHelper
@@ -14,4 +17,13 @@ class HomeViewModel(
     override fun onCreate() {
 
     }
+
+    val homeRedirection = MutableLiveData<Event<Boolean>>()
+    val newPost: MutableLiveData<Event<Post>> = MutableLiveData()
+
+    fun onHomeRedirect() {
+        homeRedirection.postValue(Event(true))
+    }
+
+
 }

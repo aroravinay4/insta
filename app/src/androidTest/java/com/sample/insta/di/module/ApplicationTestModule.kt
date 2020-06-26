@@ -5,9 +5,11 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.sample.insta.BuildConfig
 import com.sample.insta.application.InstaApplication
+import com.sample.insta.data.remote.FakeNetworkCall
 import com.sample.insta.data.remote.NetWorkService
 import com.sample.insta.data.remote.Networking
 import com.sample.insta.di.qualifire.ApplicationContext
+import com.sample.insta.di.qualifire.TempDirectory
 import com.sample.insta.utils.network.NetworkHelper
 import com.sample.insta.utils.rx.RxSchedulerProvider
 import com.sample.insta.utils.rx.SchedulerProvider
@@ -25,23 +27,25 @@ class ApplicationTestModule(private val application: InstaApplication) {
 
     @Provides
     @Singleton
-    @ApplicationContext
+ //   @ApplicationContext
     fun provideContext(): Context = application
 
+    @Provides
+    @Singleton
+   // @TempDirectory
+    fun provideTemporaryDirectory() =
+        com.sample.insta.utils.common.FileUtils.getDirectory(application, "temp")
 
     @Provides
     @Singleton
-    fun provideNetworkService(): NetWorkService =
-        Networking.create(
-            BuildConfig.API_KEY,
-            BuildConfig.BASE_URL,
-            application.cacheDir,
-            10 * 1024 * 1024
-        )
+    fun provideNetworkService(): NetWorkService {
+        Networking.API_KEY = "FAKE_API_kEY"
+        return FakeNetworkCall()
+    }
 
 
-    @Provides
     @Singleton
+    @Provides
     fun providerNetworkHelper(): NetworkHelper =
         NetworkHelper(application)
 

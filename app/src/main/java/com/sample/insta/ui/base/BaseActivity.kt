@@ -56,9 +56,9 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
         else super.onBackPressed()
     }
 
-    private fun showMessage(message: String) = Toaster.show(applicationContext, message)
+     fun showMessage(message: String) = Toaster.show(applicationContext, message)
 
-    private fun showMessage(@StringRes resId: Int) = showMessage(getString(resId))
+     fun showMessage(@StringRes resId: Int) = showMessage(getString(resId))
 
 
     @LayoutRes

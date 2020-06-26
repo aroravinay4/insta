@@ -2,6 +2,7 @@ package com.sample.insta
 
 import android.content.Context
 import com.sample.insta.application.InstaApplication
+import com.sample.insta.di.component.DaggerTestComponent
 import com.sample.insta.di.component.TestComponent
 import com.sample.insta.di.module.ApplicationTestModule
 import org.junit.rules.TestRule
@@ -10,16 +11,16 @@ import org.junit.runners.model.Statement
 
 class TestComponentRule(private val context: Context) : TestRule {
 
-    private var testComponent: TestComponent? = null
+    var testComponent: TestComponent? = null
+
     fun getContext() = context
 
-    private fun setUpDaggerTestComponentInApplication() {
+    private fun setupDaggerTestComponentInApplication() {
         val application = context.applicationContext as InstaApplication
-
-   /*     testComponent = DaggerTestComponent.builder()
+        testComponent = DaggerTestComponent.builder()
             .applicationTestModule(ApplicationTestModule(application))
             .build()
-        application.setComponent(testComponent!!)*/
+        application.setComponent(testComponent!!)
     }
 
     override fun apply(base: Statement, description: Description?): Statement {
@@ -27,13 +28,13 @@ class TestComponentRule(private val context: Context) : TestRule {
             @Throws(Throwable::class)
             override fun evaluate() {
                 try {
-                    setUpDaggerTestComponentInApplication()
+                    setupDaggerTestComponentInApplication()
                     base.evaluate()
                 } finally {
                     testComponent = null
                 }
             }
-
         }
     }
+
 }

@@ -35,7 +35,7 @@ object Networking {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build()
             .create(NetWorkService::class.java)
 
-    }
 
+}
 
 }

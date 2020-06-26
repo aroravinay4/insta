@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/padding_30">
+
+    <ImageView
+        android:id="@+id/ivUserPic"
+        android:layout_width="86dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="@dimen/padding_30"
+        android:src="@drawable/ic_profile_signup"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tVTotalPost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_30"
+        android:layout_marginTop="40dp"
+        android:textSize="@dimen/text_16"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/ivUserPic"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingPrefix"
+        android:text="10 Posts" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tVLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textAlignment="viewEnd"
+        android:textColor="@android:color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/logout" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tVProfile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_30"
+        android:layout_marginTop="@dimen/margin_16"
+        android:background="@drawable/textview_border"
+        android:padding="5dp"
+        android:text="@string/edit_profile"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivUserPic"
+        app:layout_constraintTop_toBottomOf="@+id/tVTotalPost" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/ivUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_16"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivUserPic"
+        tools:text="Erwin Smith" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvTagLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16"
+        android:maxLines="3"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivUserName"
+        tools:text="Essssssss" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
